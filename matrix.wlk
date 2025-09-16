@@ -49,9 +49,18 @@ object nave {
         pasajeros.map({p => p.vitalidad() * 2}).all(
             { v => v < self.pasajeroMayorVitalidad().vitalidad()}
         )
-        
     } 
-   
+    method estaElElegido() = pasajeros.any({ p => p.esElElegido()})
+
+    method chocar() {
+      pasajeros.forEach({p => p.saltar()})
+      pasajeros.clear()
+    }
+
+    method acelerar() {
+        self.pasajerosQueNoSonElegidos().forEach({p => p.saltar()})
+    }
+    method pasajerosQueNoSonElegidos() = pasajeros.filter({p => not p.esElElegido()})
 }
 
 
