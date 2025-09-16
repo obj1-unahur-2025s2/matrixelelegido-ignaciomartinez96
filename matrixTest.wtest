@@ -35,3 +35,33 @@ test "Vitalidad y cansancio de Morfeo despues de saltar"{
 }
 
 }
+
+describe "Testeamos a Trinity" {
+
+  test "Trinity no es el elegido" {
+    assert.notThat(trinity.esElElegido())
+  }
+
+test "Vitalidad inicial de Trinity" {
+  assert.equals(0, trinity.vitalidad())
+}
+
+test "Vitalidad de Trinity despues de saltar" {
+  trinity.saltar()
+  trinity.saltar()
+  assert.equals(0, trinity.vitalidad())
+}
+
+}
+
+describe "testeamos la nave"{
+  test "Cantidad de pasajeros inicial en la nave"{
+    assert.equals(3, nave.cantidadDePasajeros())
+  }
+
+  test "Pasajero con mayor vitalidad al inicio"{
+    assert.equals(neo, nave.pasajeroMayorVitalidad())
+  }
+
+  
+}
